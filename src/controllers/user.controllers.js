@@ -1,5 +1,4 @@
 const catchError = require('../utils/catchError');
-const { user } = require('../models/user');
 const {
 	getAllUsersServices,
 	createUserService,
@@ -7,6 +6,7 @@ const {
 	deleteUserService,
 	updateUserService,
 } = require('../services/user.services');
+const jwt = require('jsonwebtoken');
 
 const getAll = catchError(async (req, res) => {
 	const results = await getAllUsersServices();
@@ -14,7 +14,10 @@ const getAll = catchError(async (req, res) => {
 });
 
 const create = catchError(async (req, res) => {
-	const result = await createUserService(req.body);
+	const result = await createUserService({
+		...req.body,
+		password: req.passwordHash,
+	});
 	return res.status(201).json(result);
 });
 

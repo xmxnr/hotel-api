@@ -1,10 +1,10 @@
-bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt');
 
-const hashPassword = async (req, res, next) => {
+const passwordMiddlewares = async (req, res, next) => {
 	const { password } = req.body;
-	const hash = await bcrypt.hash(password, 10);
-	req.passwordHash = hash;
+	const passwordHash = await bcrypt.hash(password, 10);
+	req.passwordHash = passwordHash;
 	next();
 };
 
-module.exports = hashPassword;
+module.exports = { passwordMiddlewares };

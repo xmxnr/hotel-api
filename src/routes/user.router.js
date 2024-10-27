@@ -9,12 +9,14 @@ const {
 } = require('../controllers/user.controllers');
 const express = require('express');
 const { verifyJWT } = require('../utils/verifyJWT');
-const loginMiddleware = require('../middleware/login.middleware');
-const hashPassword = require('../middleware/hashPassword.middleware');
+const {
+	passwordMiddlewares,
+} = require('../middleware/hashPassword.middleware');
+const { loginMiddleware } = require('../middleware/login.middleware');
 
 const routerUser = express.Router();
 
-routerUser.route('/').get(verifyJWT, getAll).post(hashPassword, create);
+routerUser.route('/').get(verifyJWT, getAll).post(passwordMiddlewares, create);
 
 routerUser.route('/login').post(loginMiddleware, login);
 
