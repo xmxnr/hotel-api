@@ -1,6 +1,6 @@
 const { getAllCityServices, createCityService, getOneCityService, updateCityService, deleteCityService } = require('../services/city.services')
 const catchError = require('../utils/catchError')
-const { update, remove } = require('./user.controllers')
+
 
 const getAllCity = catchError(async(req, res) => {
     const result = await getAllCityServices()

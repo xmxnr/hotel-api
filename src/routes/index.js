@@ -5,6 +5,6 @@ const router = express.Router();
 
 // colocar las rutas aquí
 router.use('/users', routerUser);
-router.use('/cities', routerCity)
+router.use('/cities', routerCity);
 
 module.exports = router;

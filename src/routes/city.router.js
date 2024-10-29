@@ -1,8 +1,11 @@
 const express = require('express')
 const { getAllCity, createCity, getOneCity, removeCity, updateCity } = require('../controllers/city.controllers')
-const routerUser = express.Router()
+const { verifyJWT } = require('../utils/verifyJWT')
+const routerCity = express.Router()
 
 
-routerUser.route('/').get(getAllCity).post(createCity)
+routerCity.route('/').get(verifyJWT, getAllCity).post(verifyJWT, createCity)
 
-routerUser.route('/:id').get(getOneCity).delete(removeCity).put(updateCity)
+routerCity.route('/:id').get(verifyJWT, getOneCity).delete(verifyJWT, removeCity).put(verifyJWT, updateCity)
+
+module.exports = routerCity;
