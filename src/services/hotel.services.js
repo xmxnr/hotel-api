@@ -1,5 +1,5 @@
 const {hotel} = require('../models')
-const { loginUser } = require('./user.services')
+
 
 const getAllHotelsServices = async() => {
     return hotel.findAll()
