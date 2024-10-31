@@ -43,7 +43,14 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DECIMAL,
       allowNull: false
     },
-  }, {
+    cityId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'city',
+        key: 'id'
+    }
+  }
+}, {
     sequelize,
     modelName: 'hotel',
   });

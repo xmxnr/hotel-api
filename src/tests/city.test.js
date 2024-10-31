@@ -25,7 +25,7 @@ beforeAll(async () => {
     })
     
     const credentials = {
-        email: "lalom0412@gmail.com",
+        email: "eduardo@gmail.com",
         password:  'hola1234'
     }
 
