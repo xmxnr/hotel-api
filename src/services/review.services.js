@@ -13,7 +13,7 @@ const getOneReviewService = async (id) => {
 }
 
 const updateReviewService = async (id, body) => {
-    return await review.put(body, {where:{id}, returning: true})
+    return await review.update(body, {where:{id}, returning: true})
 }
 
 const removeReviewService = async (id) => {

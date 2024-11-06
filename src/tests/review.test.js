@@ -91,7 +91,7 @@ test("GETONE -> 'BASE_URL/:id' should return status 200, res.body has to be defi
 
 test("UPDATE -> 'BASE_URL/:id' should return status 200, res.body has to be defined and, res.body.comment === updateReview.comment", async () => {
     const updateComment = {
-        comment: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        comment: "Lorem1"
     }
         
     const res = await request(app).put(`${BASE_URL}/${reviewId}`).send(updateComment)
@@ -99,4 +99,10 @@ test("UPDATE -> 'BASE_URL/:id' should return status 200, res.body has to be defi
     expect(res.status).toBe(200)
     expect(res.body).toBeDefined()
     expect(res.body.comment).toBe(updateComment.comment)
+})
+
+test("DELETE -> 'BASE_URL/:id' should return status 204", async () => {
+    const res = await request(app).delete(`${BASE_URL}/${reviewId}`)
+    
+    expect(res.status).toBe(204)
 })

@@ -20,7 +20,7 @@ const getOneReview = catchError(async (req, res) => {
 
 const updateReview = catchError(async (req, res) => {
     const {id} = req.params
-    const result = await updateReviewService(id, req,body)
+    const result = await updateReviewService(id, req.body)
     if(result[0] === 0) return res.sendStatus(404)
     return res.json(result[1][0])
 })
