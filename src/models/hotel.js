@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       hotel.belongsTo(models.city)
       hotel.hasMany(models.image)
       hotel.hasMany(models.booking)
+      hotel.hasMany(models.review)
     }
   }
   hotel.init({
